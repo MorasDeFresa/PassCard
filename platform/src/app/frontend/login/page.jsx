@@ -38,10 +38,8 @@ export default function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl">
-        {/* Sección de la imagen */}
         <div className="hidden md:block md:w-1/2 relative h-[500px]">
           {" "}
-          {/* Ajusta la altura según necesites */}
           <Image
             src="/chia.png"
             alt="Imagen institucional"
@@ -55,7 +53,6 @@ export default function Login() {
           />
         </div>
 
-        {/* Sección del formulario */}
         <div className="w-full md:w-1/2 p-8">
           <div className="flex justify-center mb-6">
             <Image
