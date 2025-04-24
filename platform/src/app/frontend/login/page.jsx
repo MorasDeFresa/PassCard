@@ -38,15 +38,14 @@ export default function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl">
-        <div className="hidden md:block md:w-1/2 relative h-[500px]">
-          {" "}
+        <div className="relative w-full md:w-1/2 aspect-[3/2] md:aspect-auto md:h-auto min-h-[300px]">
           <Image
-            src="/chia.png"
+            src="/banner-chia.png"
             alt="Imagen institucional"
             fill
             className="object-cover"
             style={{
-              objectPosition: "left",
+              objectPosition: "left center", // o "left center", "center top", etc.
             }}
             quality={80}
             priority
