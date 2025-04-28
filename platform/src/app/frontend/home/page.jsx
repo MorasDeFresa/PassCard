@@ -1,9 +1,40 @@
 "use client";
 
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 
 export default function LandingPage() {
+  //Configuracion del carrousel
+  const trabajoSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    centerMode: true,
+    centerPadding: "0",
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerMode: false
+        }
+      }
+    ]
+  };
+
+  const imagenesTrabajo = [
+    "/trabajoUno.PNG",
+    "/trabajoDos.PNG",
+    "/trabajoTres.PNG"
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-[#79C000] text-gray-800 font-sans">
       {/* Hero Section */}
@@ -20,7 +51,7 @@ export default function LandingPage() {
             BIENVENIDO A PASSCARD!
           </h1>
 
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-lg text-gray-900 mb-8">
             Tú mejor aliado de control de acceso inteligente que optimiza el ingreso
             a tus instalaciones, de manera rápida y segura. El futuro ya llegó.
           </p>
@@ -34,7 +65,7 @@ export default function LandingPage() {
             </a>
             <a
               href="#clientes"
-              className="text-[#38A3A5] font-bold py-3 px-6 rounded-lg border border-[#38A3A5] hover:bg-[#38A3A5] hover:text-white transition duration-200"
+              className="text-[#ffffff] font-bold py-3 px-6 rounded-lg border border-[#] hover:bg-[#38A3A5] hover:text-white transition duration-200"
             >
               Ver Clientes →
             </a>
@@ -126,11 +157,50 @@ export default function LandingPage() {
       {/* Carrusel de imágenes */}
       <section className="py-20 bg-[#80ED99]">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestro Trabajo</h2>
-        <div className="flex overflow-x-auto gap-6 px-6">
-          <Image src="/instalacion1.jpg" alt="Instalación 1" width={400} height={300} className="rounded-lg flex-shrink-0" />
-          <Image src="/instalacion2.jpg" alt="Instalación 2" width={400} height={300} className="rounded-lg flex-shrink-0" />
-          <Image src="/instalacion3.jpg" alt="Instalación 3" width={400} height={300} className="rounded-lg flex-shrink-0" />
+        <div className="max-w-4xl mx-auto px-4">
+          <Slider {...trabajoSettings}>
+            {imagenesTrabajo.map((imagen, index) => (
+              <div key={index} className="px-2 outline-none">
+                <div className="relative h-80 w-full">
+                  <Image
+                    src={imagen}
+                    alt={`Trabajo ${index + 1}`}
+                    fill
+                    className="rounded-lg object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
+        {/* Estilos personalizados para el carrusel */}
+        <style jsx global>{`
+          .slick-prev:before, .slick-next:before {
+            color: white;
+            font-size: 30px;
+          }
+          .slick-prev {
+            left: -40px;
+          }
+          .slick-next {
+            right: -40px;
+          }
+          .slick-dots li button:before {
+            color: white;
+          }
+          .slick-dots li.slick-active button:before {
+            color: white;
+            opacity: 1;
+          }
+          @media (max-width: 768px) {
+            .slick-prev {
+              left: -20px;
+            }
+            .slick-next {
+              right: -20px;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Frase motivadora */}
@@ -143,22 +213,33 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="bg-[#38A3A5] text-white py-10">
-        <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-2">Control de Acceso UdeC</h3>
-            <p className="text-sm">Modernizando la gestión educativa con tecnología de vanguardia.</p>
-          </div>
-
-          <div className="flex space-x-6 text-2xl">
-
-
-          </div>
+      <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="mb-6 md:mb-0 text-center md:text-left">
+          <h3 className="text-2xl font-bold mb-2">Control de Acceso </h3>
+          <p className="text-sm">Modernizando la gestión educativa con tecnología de vanguardia ❤ </p>
         </div>
 
-        <div className="mt-6 text-center text-xs text-[#C7F9CC]">
-          &copy; 2025 Universidad de Cundinamarca. Todos los derechos reservados.
+        <div className="flex space-x-6 text-2xl">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
+            <FaFacebook />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
+            <FaTwitter />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
+            <FaInstagram />
+          </a>
+          
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
+            <FaYoutube />
+          </a>
         </div>
-      </footer>
+      </div>
+
+      <div className="mt-6 text-center text-xs text-[#C7F9CC]">
+        &copy; 2025 Universidad de Cundinamarca. Todos los derechos reservados.
+      </div>
+    </footer>
     </div>
   );
 }
