@@ -28,25 +28,25 @@ export default function Navbar() {
               <div className="ml-10 flex items-baseline space-x-4">
                 <button
                   onClick={() => navigateTo("/")}
-                  className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Inicio
                 </button>
                 <button
-                  onClick={() => navigateTo("/asistencias")}
-                  className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={() => navigateTo("/frontend/authenticator")}
+                  className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Asistencias
                 </button>
                 <button
                   onClick={() => navigateTo("/estudiantes")}
-                  className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Estudiantes
                 </button>
                 <button
-                  onClick={() => navigateTo("/reportes")}
-                  className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={() => navigateTo("/frontend/dashboard")}
+                  className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Reportes
                 </button>
