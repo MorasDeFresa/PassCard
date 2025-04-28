@@ -2,6 +2,15 @@ const data = [
   { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "08:00", tipo: "Entrada" },
   { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
   { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
+  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
+  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
+  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
+  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
+  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
+  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
+  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
+  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
+  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
 ];
 
 export default function AttendanceTable() {
