@@ -125,7 +125,7 @@ export default function LandingPage() {
 
       {/* Carrusel de imágenes */}
       <section className="py-20 bg-[#80ED99]">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestro TRabajo</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestro Trabajo</h2>
         <div className="flex overflow-x-auto gap-6 px-6">
           <Image src="/instalacion1.jpg" alt="Instalación 1" width={400} height={300} className="rounded-lg flex-shrink-0" />
           <Image src="/instalacion2.jpg" alt="Instalación 2" width={400} height={300} className="rounded-lg flex-shrink-0" />
