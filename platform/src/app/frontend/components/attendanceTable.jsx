@@ -45,11 +45,11 @@ export default function AttendanceTable() {
 
       {/* Paginación simple abajo */}
       <div className="flex justify-between items-center mt-6">
-        <button className="px-4 py-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300">
+        <button className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-500">
           Anterior
         </button>
         <div className="flex space-x-2">
-          <button className="w-8 h-8 flex items-center justify-center rounded bg-blue-500 text-white">
+          <button className="w-8 h-8 flex items-center justify-center rounded bg-green-700 text-white">
             1
           </button>
           <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-200">
@@ -59,7 +59,7 @@ export default function AttendanceTable() {
             3
           </button>
         </div>
-        <button className="px-4 py-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300">
+        <button className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-500">
           Siguiente
         </button>
       </div>

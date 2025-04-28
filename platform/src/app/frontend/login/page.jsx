@@ -40,12 +40,12 @@ export default function Login() {
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl">
         <div className="relative w-full md:w-1/2 aspect-[3/2] md:aspect-auto md:h-auto min-h-[300px]">
           <Image
-            src="/banner-chia.png"
+            src="/PORTADA.png"
             alt="Imagen institucional"
             fill
             className="object-cover"
             style={{
-              objectPosition: "left center", // o "left center", "center top", etc.
+              objectPosition: "rigth center", // o "left center", "center top", etc.
             }}
             quality={80}
             priority
