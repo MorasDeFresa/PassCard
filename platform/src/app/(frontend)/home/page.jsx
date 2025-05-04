@@ -2,10 +2,15 @@
 
 import Image from "next/image";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
-
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function LandingPage() {
   //Configuracion del carrousel
@@ -23,16 +28,16 @@ export default function LandingPage() {
       {
         breakpoint: 768,
         settings: {
-          centerMode: false
-        }
-      }
-    ]
+          centerMode: false,
+        },
+      },
+    ],
   };
 
   const imagenesTrabajo = [
     "/trabajoUno.PNG",
     "/trabajoDos.PNG",
-    "/trabajoTres.PNG"
+    "/trabajoTres.PNG",
   ];
 
   return (
@@ -44,7 +49,6 @@ export default function LandingPage() {
             <span className="bg-[#38A3A5] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
               Hola
             </span>
-
           </div>
 
           <h1 className="text-5xl font-extrabold mb-6 leading-tight text-[#ffffff]">
@@ -52,13 +56,14 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg text-gray-900 mb-8">
-            Tú mejor aliado de control de acceso inteligente que optimiza el ingreso
-            a tus instalaciones, de manera rápida y segura. El futuro ya llegó.
+            Tú mejor aliado de control de acceso inteligente que optimiza el
+            ingreso a tus instalaciones, de manera rápida y segura. El futuro ya
+            llegó.
           </p>
 
           <div className="flex space-x-4">
             <a
-              href="/frontend/login"
+              href="/login"
               className="bg-[#57CC99] hover:bg-[#80ED99] text-white font-bold py-3 px-6 rounded-lg transition duration-200"
             >
               Iniciar Sesión
@@ -86,48 +91,78 @@ export default function LandingPage() {
 
       {/* Servicios Section */}
       <section className="py-20 bg-[#C7F9CC] text-gray-800">
-        <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Nuestros Servicios
+        </h2>
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
           {/* Servicio 1 */}
           <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg hover:scale-105 transition">
-            <Image src="/lectura.png" alt="Acceso Rápido" width={180} height={180} className="mb-6" />
-            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">Acceso Rápido</h3>
+            <Image
+              src="/lectura.png"
+              alt="Acceso Rápido"
+              width={180}
+              height={180}
+              className="mb-6"
+            />
+            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">
+              Acceso Rápido
+            </h3>
             <p className="text-gray-600 text-justify">
-              Lectura instantánea de tarjetas para un ingreso fluido, sin necesidad de contacto físico.
+              Lectura instantánea de tarjetas para un ingreso fluido, sin
+              necesidad de contacto físico.
             </p>
           </div>
 
           {/* Servicio 2 */}
           <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg hover:scale-105 transition">
-            <Image src="/encriptado.png" alt="Seguridad Mejorada" width={180} height={180} className="mb-6" />
-            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">Seguridad Mejorada</h3>
+            <Image
+              src="/encriptado.png"
+              alt="Seguridad Mejorada"
+              width={180}
+              height={180}
+              className="mb-6"
+            />
+            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">
+              Seguridad Mejorada
+            </h3>
             <p className="text-gray-600 text-justify">
-              Control de accesos en tiempo real y reportes automatizados para mayor seguridad en sus instalaciones.
+              Control de accesos en tiempo real y reportes automatizados para
+              mayor seguridad en sus instalaciones.
             </p>
           </div>
 
           {/* Servicio 3 */}
           <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-lg hover:scale-105 transition">
-            <Image src="/monitoreo.png" alt="Automatización Total" width={180} height={180} className="mb-6" />
-            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">Automatización Total</h3>
+            <Image
+              src="/monitoreo.png"
+              alt="Automatización Total"
+              width={180}
+              height={180}
+              className="mb-6"
+            />
+            <h3 className="text-2xl font-bold mb-4 text-[#38A3A5]">
+              Automatización Total
+            </h3>
             <p className="text-gray-600 text-justify ">
-              Optimización de procesos de ingreso y salida para mejorar la eficiencia operativa.
+              Optimización de procesos de ingreso y salida para mejorar la
+              eficiencia operativa.
             </p>
           </div>
         </div>
       </section>
 
-
       {/* Clientes Section */}
       <section id="clientes" className="py-20 bg-[#57CC99] text-white">
-        <h2 className="text-4xl font-bold text-center mb-12">Nuestros clientes</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Nuestros clientes
+        </h2>
 
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             {/* Contenedor de la imagen */}
             <div className="w-full md:w-1/3 lg:w-2/5 flex justify-center bg-white p-4 rounded-lg">
               <Image
-                src="/Logo_Universidad_de_Cundinamarca.png"  
+                src="/Logo_Universidad_de_Cundinamarca.png"
                 alt="Cliente destacado"
                 width={400}
                 height={400}
@@ -137,9 +172,13 @@ export default function LandingPage() {
 
             {/* Contenedor del texto */}
             <div className="w-full md:w-2/3 lg:w-3/5">
-              <h3 className="text-2xl font-bold mb-4">Universidad Cundinamarca</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Universidad Cundinamarca
+              </h3>
               <p className="text-lg mb-4 text-justify">
-                "PassCard ha transformado nuestro sistema de acceso, reduciendo los tiempos de ingreso y mejorando significativamente la seguridad en nuestras instalaciones."
+                "PassCard ha transformado nuestro sistema de acceso, reduciendo
+                los tiempos de ingreso y mejorando significativamente la
+                seguridad en nuestras instalaciones."
               </p>
               <p className="italic">- Rector Juan Pérez</p>
 
@@ -156,7 +195,9 @@ export default function LandingPage() {
 
       {/* Carrusel de imágenes */}
       <section className="py-20 bg-[#80ED99]">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestro Trabajo</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          Nuestro Trabajo
+        </h2>
         <div className="max-w-4xl mx-auto px-4">
           <Slider {...trabajoSettings}>
             {imagenesTrabajo.map((imagen, index) => (
@@ -175,7 +216,8 @@ export default function LandingPage() {
         </div>
         {/* Estilos personalizados para el carrusel */}
         <style jsx global>{`
-          .slick-prev:before, .slick-next:before {
+          .slick-prev:before,
+          .slick-next:before {
             color: white;
             font-size: 30px;
           }
@@ -206,40 +248,64 @@ export default function LandingPage() {
       {/* Frase motivadora */}
       <section className="py-16 bg-[#C7F9CC] text-center px-6">
         <blockquote className="text-3xl italic font-semibold text-gray-700 max-w-4xl mx-auto">
-          "La automatización aplicada de forma inteligente es la clave para una nueva revolución industrial." <br />
+          "La automatización aplicada de forma inteligente es la clave para una
+          nueva revolución industrial." <br />
           <span className="text-[#38A3A5]">(Bill Gates)</span>
         </blockquote>
       </section>
 
       {/* Footer */}
       <footer className="bg-[#38A3A5] text-white py-10">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-6 md:mb-0 text-center md:text-left">
-          <h3 className="text-2xl font-bold mb-2">Control de Acceso </h3>
-          <p className="text-sm">Modernizando la gestión educativa con tecnología de vanguardia ❤ </p>
+        <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-6 md:mb-0 text-center md:text-left">
+            <h3 className="text-2xl font-bold mb-2">Control de Acceso </h3>
+            <p className="text-sm">
+              Modernizando la gestión educativa con tecnología de vanguardia ❤{" "}
+            </p>
+          </div>
+
+          <div className="flex space-x-6 text-2xl">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#C7F9CC] transition-colors"
+            >
+              <FaFacebook />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#C7F9CC] transition-colors"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#C7F9CC] transition-colors"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#C7F9CC] transition-colors"
+            >
+              <FaYoutube />
+            </a>
+          </div>
         </div>
 
-        <div className="flex space-x-6 text-2xl">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
-            <FaFacebook />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
-            <FaTwitter />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
-            <FaInstagram />
-          </a>
-          
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C7F9CC] transition-colors">
-            <FaYoutube />
-          </a>
+        <div className="mt-6 text-center text-xs text-[#C7F9CC]">
+          &copy; 2025 Universidad de Cundinamarca. Todos los derechos
+          reservados.
         </div>
-      </div>
-
-      <div className="mt-6 text-center text-xs text-[#C7F9CC]">
-        &copy; 2025 Universidad de Cundinamarca. Todos los derechos reservados.
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default function Navbar() {
                   Inicio
                 </button>
                 <button
-                  onClick={() => navigateTo("/frontend/authenticator")}
+                  onClick={() => navigateTo("/authenticator")}
                   className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Asistencias
@@ -45,7 +45,7 @@ export default function Navbar() {
                   Estudiantes
                 </button>
                 <button
-                  onClick={() => navigateTo("/frontend/dashboard")}
+                  onClick={() => navigateTo("/dashboard")}
                   className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Reportes
@@ -56,7 +56,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
               <button
-                onClick={() => navigateTo("/frontend/login")}
+                onClick={() => navigateTo("/login")}
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium"
               >
                 Cerrar sesión

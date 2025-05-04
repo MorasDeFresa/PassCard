@@ -24,7 +24,7 @@ export default function Login() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       if (email && password) {
-        router.push("/frontend/dashboard");
+        router.push("/dashboard");
       } else {
         setError("Credenciales incorrectas");
       }
