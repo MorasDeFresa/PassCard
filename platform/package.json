@@ -9,14 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sequelize/postgres": "7.0.0-alpha.46",
     "next": "15.3.0",
+    "pg": "^8.15.6",
+    "pg-hstore": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

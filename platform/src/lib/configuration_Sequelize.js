@@ -1,20 +1,21 @@
 const { Sequelize } = require("sequelize");
-const { PostgresDialect } = require("@sequelize/postgres");
+const pg = require("pg");
 const {
   association,
   handlerAssociationModels,
 } = require("../models/associations");
 
-const sequelize = new Sequelize({
-  dialect: PostgresDialect,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  ssl: true,
-  clientMinMessages: "notice",
-});
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    dialect: "postgres",
+    dialectModule: pg,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+  }
+);
 
 association(sequelize);
 handlerAssociationModels(sequelize);
