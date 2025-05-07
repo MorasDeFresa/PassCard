@@ -5,20 +5,17 @@ const testConnection = async () => {
     await sequelize.authenticate();
     return "Connection has been established successfully.";
   } catch (error) {
-    throw new Error("Unable to connect to the database");
+    throw new Error(`Unable to connect to the database: ${error?.message}`);
   }
 };
 
 const syncDataBase = async () => {
-
   try {
-    await sequelize.sync({ force: true })
-    return "Database sync"
+    await sequelize.sync({ force: true });
+    return "Database sync";
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-
-}
+};
 
 export { testConnection, syncDataBase };
-
