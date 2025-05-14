@@ -21,7 +21,7 @@ export default function RfidAuthPage() {
       // Simulación temporal:
       setTimeout(() => {
         // Cambiar a false para simular error
-        setAuthStatus(true);
+        setAuthStatus(null);
         setLoading(false);
       }, 3000);
     };
