@@ -9,7 +9,7 @@ export default function Test() {
   const [mensajes, setMensajes] = useState([]);
 
   const enviarMensaje = () => {
-    socket.io.engine.emit("hello", "Hola desde el cliente!");
+    socket.emit("hello", "Hola desde el cliente!");
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Test() {
       setIsConnected(true);
       setTransport(socket.io.engine.transport.name);
 
-      socket.io.engine.on("hello", (mensaje) => {
+      socket.on("hello", (mensaje) => {
         console.log("Mensaje recibido:", mensaje);
         setMensajes((prev) => [...prev, mensaje]);
       });
