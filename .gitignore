@@ -49,3 +49,4 @@ platform/pnpm-lock.yaml
 ESP32/src/wifi/Wifi_Credentials.h
 ESP32/src/api/Api_Credentials.h
 platform/src/data/data.json
+platform/package-lock.json
