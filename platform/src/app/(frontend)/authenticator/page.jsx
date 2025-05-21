@@ -1,13 +1,49 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { socket } from "@/app/socket_client";
 
 export default function RfidAuthPage() {
   const [authStatus, setAuthStatus] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [transport, setTransport] = useState("N/A");
 
   // Simulación de conexión con ESP32 (reemplaza con tu lógica real)
   useEffect(() => {
+    if (socket.connected) {
+      onConnect();
+    }
+    socket.emit("hello", "Hola desde el cliente!");
+    function onConnect() {
+      setIsConnected(true);
+      setTransport(socket.io.engine.transport.name);
+
+      socket.on("hello", (message) => {
+        console.log("frontend", message);
+
+        setAuthStatus(message == "true");
+        setTimeout(() => {
+          resetScanner();
+        }, 3000);
+      });
+
+      // socket.emit("test", "f8b8b106-b1dc-4f87-b248-fb1db9e5cd95", searchCard);
+
+      socket.io.engine.on("upgrade", (transport) => {
+        setTransport(transport.name);
+      });
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+      setTransport("N/A");
+    }
+
+    // Configurar listeners
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
+
     const simulateRfid = () => {
       // Aquí iría tu conexión real con el ESP32
       // Ejemplo con WebSocket:
@@ -29,6 +65,14 @@ export default function RfidAuthPage() {
     if (authStatus === null) {
       simulateRfid();
     }
+
+    // Escuchar mensajes del servidor
+
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+      socket.off("hello");
+    };
   }, [authStatus]);
 
   const resetScanner = () => {
