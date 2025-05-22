@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "next": "15.3.0",
     "pg": "^8.15.6",
     "pg-hstore": "^2.3.4",
@@ -19,9 +20,9 @@
     "react-slick": "^0.30.3",
     "sequelize": "^6.37.7",
     "slick-carousel": "^1.8.1",
-    "uuid": "^11.1.0",
     "socket.io": "^4.8.1",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
