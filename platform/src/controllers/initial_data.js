@@ -3,11 +3,14 @@ const {
   asistentes,
   identificaciones,
   roles,
+  usuarios,
 } = require("@/data/data.json");
 const { CreateAsistencia } = require("@/methods/methods_Asistencia");
 const { CreateAsistente } = require("@/methods/methods_Asistente");
 const { CreateIdentificacion } = require("@/methods/methods_Identificacion");
 const { CreateRol } = require("@/methods/methods_Rol");
+const { CreateUser } = require("@/methods/methods_User");
+CreateUser;
 
 const LoadInitialData = async () => {
   try {
@@ -29,6 +32,11 @@ const LoadInitialData = async () => {
     for (const element of asistencias) {
       const JsonData = element;
       await CreateAsistencia({ JsonData });
+    }
+
+    for (const element of usuarios) {
+      const JsonData = element;
+      await CreateUser({ JsonData });
     }
 
     return "La data fue cargada correctamente";
