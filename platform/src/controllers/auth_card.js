@@ -24,7 +24,6 @@ const searchCard = async (uuid) => {
 const authCard = async (uuid) => {
   try {
     const cardToAuth = await searchCard(uuid);
-    console.log(cardToAuth);
 
     const JsonData = { id_Identificacion: cardToAuth?.id_Identificacion };
     socket.emit("hello", "true");
