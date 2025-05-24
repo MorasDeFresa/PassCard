@@ -38,18 +38,18 @@ export default function Navbar() {
                 >
                   Asistencias
                 </button>
-                <button
+                {/* <button
                   onClick={() => navigateTo("/estudiantes")}
                   className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Estudiantes
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   onClick={() => navigateTo("/dashboard")}
                   className="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Reportes
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

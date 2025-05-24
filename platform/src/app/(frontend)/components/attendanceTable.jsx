@@ -1,19 +1,50 @@
-const data = [
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "08:00", tipo: "Entrada" },
-  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-  { nombre: "Ana Torres", fecha: "2025-04-16", hora: "08:05", tipo: "Entrada" },
-  { nombre: "Juan Pérez", fecha: "2025-04-16", hora: "17:00", tipo: "Salida" },
-];
+"use client";
 
-export default function AttendanceTable() {
+export default function AttendanceTable({ data }) {
+  // Función para convertir UTC a hora de Colombia (UTC-5) con manejo de errores
+  const convertToColombiaTime = (utcDateString) => {
+    try {
+      if (!utcDateString) return { fecha: "--", hora: "--" };
+
+      const date = new Date(utcDateString);
+
+      // Validamos que la fecha sea válida
+      if (isNaN(date.getTime())) return { fecha: "--", hora: "--" };
+
+      // Ajustamos a UTC-5 (Colombia)
+      date.setHours(date.getHours());
+
+      // Extraemos fecha y hora en formato local
+      const fecha = date.toISOString().split("T")[0];
+      const hora = date.toTimeString().substring(0, 5);
+
+      return { fecha, hora };
+    } catch (error) {
+      console.error("Error al convertir fecha:", error);
+      return { fecha: "--", hora: "--" };
+    }
+  };
+
+  // Transformamos los datos de la API con manejo seguro de propiedades anidadas
+  const transformedData =
+    data?.message?.map((record) => {
+      // Manejo seguro de propiedades anidadas
+      const nombreCompleto =
+        record?.AsistenciasToIdentificaciones?.IdentificacionesToAsistentes
+          ?.nomb || "Sin nombre";
+      const tipoRegistro = record?.tipo || "Entrada";
+
+      // Convertimos la hora a zona horaria de Colombia
+      const { fecha, hora } = convertToColombiaTime(record?.createdAt);
+
+      return {
+        nombre: nombreCompleto,
+        fecha: fecha,
+        hora: hora,
+        tipo: tipoRegistro,
+      };
+    }) || [];
+
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold mb-4">Registro de Asistencia</h1>
@@ -23,12 +54,12 @@ export default function AttendanceTable() {
             <tr>
               <th className="px-6 py-3">Nombre</th>
               <th className="px-6 py-3">Fecha</th>
-              <th className="px-6 py-3">Hora</th>
+              <th className="px-6 py-3">Hora (CO)</th>
               <th className="px-6 py-3">Tipo</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {data.map((registro, index) => (
+            {transformedData.map((registro, index) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td className="px-6 py-4 font-medium text-gray-900">
                   {registro.nombre}
@@ -52,7 +83,7 @@ export default function AttendanceTable() {
         </table>
       </div>
 
-      {/* Paginación simple abajo */}
+      {/* Paginación */}
       <div className="flex justify-between items-center mt-6">
         <button className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-500">
           Anterior
