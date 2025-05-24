@@ -11,24 +11,45 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  let regexEmail = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+
   const handleLogin = async () => {
     if (!email || !password) {
       setError("Por favor ingresa correo y contraseña");
       return;
     }
 
+    // if (!regexEmail.test(email)) {
+    //   setError("Correo invalido");
+    //   return;
+    // }
+
     setIsLoading(true);
-    setError("");
-
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/user/auth`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            nombre_Usuario: email,
+            contrasena_Usuario: password,
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
 
+      if (data?.message?.nombre_Usuario != email) throw new Error("Not found");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       if (email && password) {
+        setError("");
         router.push("/dashboard");
       } else {
         setError("Credenciales incorrectas");
       }
     } catch (err) {
+      console.log(err.message);
+
       setError("Error al iniciar sesión");
     } finally {
       setIsLoading(false);
